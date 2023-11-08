@@ -476,6 +476,6 @@ def apology():
     """Show page details""" 
     return render_template ("apology.html")
 
-if __name__ == "__main__":
-    app.run(debug=False)
+#if __name__ == "__main__":
+ #   app.run(debug=False)
 
