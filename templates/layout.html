@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="/static/styles.css" rel="stylesheet">
+        <title>{% block title %}{% endblock %}</title>
+        <!-- Include Bootstrap CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+        <script crossorigin="anonymous" src="https://cdn.jsdelivr.net/npm/bootstrap@5.3/dist/js/bootstrap.bundle.min.js"></script>
+    </head>
+    <body id="body">
+        <nav id="navbar">
+            <div id="navimg"></div>
+        {% if session["user_id"] %}
+            <ul>
+            <li>
+                <a id="navbar_title_left" href="/">Home</a>
+                <a id="navbar_title_left" href="/category">Book</a>
+                <a id="navbar_title_left" href="/subject">Chapters</a>
+                <a id="navbar_title_left" id="blog" href="/titles">Titles</a>
+            </li>
+            <li><a id="navbar_title_right" href="/logout">Logout</a></li>
+            </ul>
+            <div>
+                <form method="post" action="/layout">
+                    <input list="browsers" placeholder="Search Titles" name="search" autocomplete="off">
+                    <datalist id="browsers">
+                    {% for row in title_search %}
+                    <option value="{{row}}">
+                    {% endfor %}
+                    </datalist>
+                    <a href="/titles"><button class="btn btn-success" type="#">Search</button></a>
+                </form>
+            </div>      
+            
+            {% else %}
+            <ul>
+            <li><a href="/">Home</a></li>
+
+            <li style="right: 2%;">
+                <a id="navbar_title_right" href="login">Login</a>
+                <a href="register">Register</a>
+            </li>
+            </ul>
+            <!-- <div>
+                <button id="button_img1" value="#" type="disable"></button>
+                <p>Your Book Marker Oginiser</p>
+            </div> -->
+            {% endif %}  
+        </nav>
+        {% block main %}{% endblock %}
+    </body>
+</html>

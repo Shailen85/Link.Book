@@ -1,0 +1,28 @@
+{% extends "layout.html"%}
+
+{% block title%}
+  Login
+{% endblock %}
+
+{% block main %}
+<div id="start_page">
+    <div class="start_page1">
+        <button value="#" type="disable"></button>
+        <p>Your digital curator for videos and websites. Easily save and categorize links into custom categories, subjects, titles, and descriptions. Streamline your online learning journey and explore the web with purpose.</p>
+    </div>
+    <div class="start_page2">
+    <form action="/login" method="post">
+        <div>
+            <h4>LOGIN</h4>
+        </div>
+        <div class="mb-3">
+            <input autocomplete="off" autofocus class="form-control mx-auto w-auto" id="username" name="username" placeholder="Username" type="text"><br>
+            <input class="form-control mx-auto w-auto" id="password" name="password" placeholder="Password" type="password"><br>
+        </div>
+        <div class="d-grid gap-2 d-md-flex justify-content-md-center">
+            <button class="btn btn-success" type="submit">Login</button>
+        </div>
+    </form>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,105 @@
+{% extends "layout.html"%}
+
+{% block title%}
+  Chapters
+{% endblock %}
+
+{% block main %}
+<div id="box_left">
+  <h4>All CHAPTERS</h4>
+  <div id="left_menubox">
+    <form method="post" action="/subject">
+    {% for row in subjects %}
+      <li><button class="btn btn-success" type="submit" id="html" name="subjects" value="{{row}}">{{ row }}</button></li>
+    {% endfor %}
+    <div id="edit_menubox">
+      <li><button class="btn btn-success" name="generate-edit-form"  value="true" type="submit">Edit / Delete</button></li>
+      <li><button class="btn btn-success" name="generate-form"  value="true" type="submit">Creat New Chapter</button></li>
+    </div>
+  </form>
+  </div>
+</div>
+
+{% if body_img %}
+<div id="box_right" style="height: 400px; --bg-image: url('/static/pictures/subject.jpg')">
+  <form action="/category" method="post">
+    <div><button id="button_img" style="position: absolute;" name="table_info" type="submit" value="true" ></button></div>
+  </form>
+</div>
+{% endif %}
+
+{% if subject %}
+<div id="box_right" style="--bg-image: url('/static/pictures/subject.jpg')">
+  <form method="POST" action="/subject">
+  <h4>CHAPTER: {{subject}}</h4>
+  <ul style="border-radius: 8px; padding: 1%;">
+    {% for title in titles_list %}
+    <!-- <li>TITLE: <button>{{ title }}</button></li> -->
+    <li class="form_group">
+      <label for="titles">Title:</label>
+      <label class="form-control2">{{title}}</label>
+      <button name="search" value="{{ title }}" type="submit">Play</button>
+      <!-- <p1>TITLE: {{title}} <button class="btn btn-info" name="search" value="{{ title }}" type="submit">Play</button></p> -->
+    </li>
+    {% endfor %}
+  </ul>
+  <div class="d-grid gap-2 d-md-flex justify-content-md-left">
+    <button class="btn btn-info" id="generate-delete-form" name="generate-delete-form" value="{{subject}}" type="submit">Edit / Delete</button>
+  </div>
+  </form>
+</div>
+{% endif %}
+
+{% if forms_edit %}
+<div id="box_right" style="--bg-image: url('/static/pictures/subject.jpg')">
+  <form action="/subject" method="POST">
+    <h4>Chapters</h4>
+    <label for="option_select">Select Chapter : </label><br>
+    <input list="browser" name="option_select" type="text" autocomplete="off">
+    <datalist id="browser">
+      {% for list in subjects %}
+        <option name="option_select" value="{{list}}">{{list}}</option>          
+      {% endfor %}
+    </datalist>
+    <button class="btn btn-info" name="option_select" value="{{list}}">submit</button>
+  </form>
+</div>
+{% endif %}
+
+{% if form_delete %}
+<div id="box_right" style="--bg-image: url('/static/pictures/subject.jpg')">
+  <form action="/subject" method="POST">
+    <p>BOOK : {{category_name}} </p>
+    <h4>CHAPTER : {{edit_subject}} </h4>
+    <label for="edit_subject">Change Name From : </label>
+    <input type ="text" id="change_name" name="change_name" value="{{edit_subject}}"><br>
+    <button class="btn btn-info" name="change" value="edit_subject_name">Change</button>
+    <label for="edit_subject">To</label>
+    <input type="text" id="edit_subject" name="edit_subject_name"><br>
+    <p>Warning: Changing name will move all titles below to new chapter name</p>
+    
+    
+    <p>OR</p>
+
+    <button class="btn btn-info" name="delete_name" value="{{edit_subject}}">Delete</button>
+    <label for="delete"> > {{edit_subject}}</label>
+    <p>Warning: Deleting chapter will delete all titles below</p>
+    
+    <div id="delete_info">
+      <div class="delete_form_subjects">
+        <label for="subject_name">Book <li>{{category_name}}</li></label>
+      </div>
+      <div class="delete_form_titles">
+        <label for="title_name">Titles 
+          {% for row in titles_list %}
+          <li>{{row}}</li>
+          {% endfor %}
+        </label>
+      </div>
+    </div>
+  </form>
+</div>
+{% endif %}
+
+{% endblock %}
+

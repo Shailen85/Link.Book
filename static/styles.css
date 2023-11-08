@@ -1,0 +1,441 @@
+#body{
+    height:1330px;
+    background-image: linear-gradient(to right, rgb(0, 0, 0), rgb(3, 49, 122), rgba(2, 59, 150, 0.788));
+    /* background-image: url("/static/pictures/titled.png"); */
+    background-size: contain;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    /* max-height: 100%;  */
+}
+
+/* --------------------------------Index Page------------------------------------------ */
+#hello_header{
+    color:  rgb(15, 179, 230);
+    margin-top: 3%;
+    margin-left: 40%;
+}
+p1{ 
+    font-family: 'fantasy', papyrus; 
+    font-size: 18px;
+    letter-spacing: 2px; 
+    text-align: center;
+}
+#table_heading{
+    border-top: solid 1px;
+    border-bottom: solid 1px;
+    background-image: linear-gradient(to right, rgb(0, 0, 0), rgba(255, 0, 0, 0.342));
+    position: relative;
+    margin-top: 5%;
+    margin-left: 10%;
+    width: 80%;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    padding-left: 15%;
+    color: rgb(147, 173, 180);
+}
+#index_table{
+    position: relative;
+    background-color: rgba(0, 0, 0, 0.384);
+    margin-left: 10%;
+    width: 80%;
+    /* color: whitesmoke; */
+    /* border: solid 1px; */
+}
+#index_table th{
+    background-color: rgba(0, 0, 0, 0.384);
+    padding: 1%;
+    width: 10%; 
+    color: rgb(15, 179, 230);
+    /* border-bottom: solid 1px; */
+    /* border-top: solid 1px; */
+    font-family: 'fantasy', papyrus; 
+    font-size: 11px;  
+}
+#index_table td{
+    color: white;
+    padding: 1%;
+    font-size: 11px;
+}
+#index_table a{
+    color: rgb(10, 243, 212);
+    /* text-decoration: none */
+}
+#button_img{
+    /* border: solid; */
+    /* position: absolute; */
+    background-color: transparent;
+    background-image: url("/static/pictures/cooltext4.png");
+    background-size: contain;
+    background-position: center;
+    /* background-size: cover; */
+    background-repeat: no-repeat;
+    width: 20%;
+    height: 50px;
+    /* margin-top: -2%; */
+    left: 40%;
+}
+#arrow{
+    font-size: 30px;
+    color: rgb(184, 240, 184);
+    padding-left: 49%;
+}
+/*-------------------------------- login box-------------------------------------------- */
+#start_page{
+    position: absolute;
+    margin-top: 5%;
+    left: 2%;
+    /* border: solid; */
+    width: 95%;
+    height: 70%;
+}
+.start_page1{
+    padding-top: 1%;
+    /* border: solid; */
+    position: relative;
+    width: 50%;
+    height: 70%;
+    float: left;
+}
+.start_page2{
+    padding-top: 2%;
+    /* border: solid; */
+    position: relative;
+    width: 50%;
+    height: 70%;
+    float: right;
+}
+#start_page h4{
+    /* border: solid; */
+    position: relative;
+    padding-bottom: 1%;
+    padding-left: 40%;
+    font-size: 30px;
+    color: white;
+}
+.start_page1 button{
+    border-bottom: solid rgb(147, 173, 180);
+    border-width: 1px;
+    background-color: transparent;
+    background-image: url("/static/pictures/cooltext4.png");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    /* background-size: cover; */
+    width: 40%;
+    height: 60px;
+    left: 35%;
+}
+#start_page p{
+    /* border: solid; */
+    font-family: 'fantasy', papyrus;
+    color: rgb(147, 173, 180);
+    padding-left: 10%;
+    text-align: center;
+    font-size: 18px;
+    letter-spacing: 2px; 
+}
+/* --------------------------------layout navigation bar------------------------------------- */
+#navbar {
+    border-bottom: solid rgb(226, 231, 183);
+    border-width: 1px;
+    position: relative;
+    font-family: 'fantasy', papyrus; 
+    font-size: 18px;
+    background-color: black;
+    padding-top: 1%;
+    padding-bottom: 1%;
+}
+#navimg{
+    background-image: url("/static/pictures/navbar.jpg");
+    background-position: center;
+    background-size: contain;
+    opacity: 0.3;
+    position:absolute;
+    width: 100%;
+    height: 100%;
+    margin-top: -1%;
+}
+#navbar ul { 
+    position: relative; /* entire ul */
+    list-style: none; /* Remove bullet points from the list */
+    margin-bottom: 0%;
+    padding: 0%;
+    display:flex; /* Display items horizontally */
+}
+#navbar ul li {
+    /* border: solid; */
+    width: 100%;
+    position: relative;
+    display:flex;
+    /* align-items: center; */
+}
+#navbar a {
+    position: relative;
+    text-decoration: none; /* Remove underlines from links */
+    color:rgb(255, 255, 255); /* Text color for links */
+    padding: 1%;
+}
+#navbar a:hover{
+    color: greenyellow;
+}
+#navbar_title_right{
+    position: relative;
+    margin-left: 75%;
+    margin-right: 1%;
+}
+#navbar_title_left{
+    /* border: solid; */
+    position: relative;
+    margin-left: 5%;
+    margin-right: 1%;
+}
+#navbar form {
+    /* border: solid; */
+    margin-left: 50%;
+    margin-top: -40px;
+    display: flex;
+    align-items: center;
+    position:absolute;
+}
+#navbar form input{
+    font-family: 'Times New Roman', Times, serif;  
+}
+/* -------------------------left box menu------------------------------ */
+#box_left{
+    background-color: transparent;
+    /* margin-top: 5%; */
+    border-right: solid rgb(226, 231, 183);
+    border-width: 1px;
+    width: 32%;
+    padding: 1%;
+    padding-left: 2%;
+    position: absolute;
+    float: left;
+    height: 1250px;
+    color: whitesmoke;
+}
+#box_left h4{
+    border-bottom: solid 1px;
+    margin-top: 4%;
+    margin-bottom: 8%;
+    font-family: 'fantasy', papyrus; 
+    font-size: 12px;
+    color:  rgb(200, 245, 204);
+    word-spacing: 10px;
+    padding-top: 1%;
+    padding-left: 10%;
+    padding-bottom: 2%;
+    width: 70%;
+    /* text-decoration-line: underline; */
+    text-transform: uppercase;
+}
+#left_menubox{
+    list-style:none;
+    margin-bottom: 5%;
+}
+#left_menubox button{
+    color:whitesmoke;
+    font-size: 10px;
+    border-radius: 8px;
+    margin-bottom: 1%;
+    padding: 2%;
+
+}
+#edit_menubox{
+    margin-top: 30%;
+}
+#edit_menubox button{
+    font-size: 14px;
+    border-radius: 6px;
+    margin-bottom: 3%;
+    padding: 3%;
+}
+#edit_menubox li{
+    list-style:none;
+}
+button{
+    border: none;
+    background-image: linear-gradient(to right, rgba(4, 0, 255, 0), rgba(0, 4, 255, 0.438));
+    font-size: medium;
+    position: relative;
+}
+/* ---------------------------Right box forms------------------------------ */
+#box_center{
+    margin-top: 2%;
+    background-color: rgba(0, 0, 0, 0.384);
+    border-radius: 8px;
+    width: 90%;
+    padding: 1%;
+    position: relative;
+    left: 5%;
+    /* right: 5%; */
+    height: auto;
+    color: rgb(255, 255, 255);
+
+}
+#box_right{
+    /* border: solid; */
+    --bg-image: url("/static/pictures/category.jpg"); 
+    --bg-image-opacity: 0.3;
+    margin-top: 2%;
+    border-radius: 8px;
+    width: 50%;
+    padding: 2%;
+    position: absolute;
+    right: 15%;
+    height: auto;
+    color: rgb(255, 255, 255);
+}
+#box_right::before{
+    background-image: var(--bg-image);
+    background-position: center;
+    background-size:cover;
+    background-repeat: no-repeat;
+    content: '';
+    position: absolute;
+    inset: 0;
+    opacity: var(--bg-image-opacity);
+}
+#box_right form{
+    isolation: isolate;
+}
+#box_right h4{
+    /* margin-left: 30%; */
+    border-bottom: solid 2px;
+    padding-bottom: 1%;
+    margin-bottom: 2%;
+    font-family: 'fantasy', papyrus; 
+    font-size: 18px;
+    color:  wheat;
+    word-spacing: 10px;
+    text-transform: uppercase;
+}
+/* box right list form */
+#box_right li{
+    list-style: circle;
+}
+#box_right li button{
+    background-color: green;
+    color: white;
+    font-size: 14px;
+    border-radius: 6px;
+    position: absolute;
+    height: 22px;
+    margin-left: 2%;
+}
+#box_right li label{
+    color: rgb(200, 245, 204);
+    word-spacing: 5px;
+}
+#box_right .form-control2{
+    color: rgb(185, 206, 250);
+}
+/*  title form open button */
+#box_right a{
+    color:rgb(156, 243, 239);
+    text-decoration: none;
+}
+#box_right p{
+    color: rgb(200, 245, 204);
+}
+.form-group #discription{
+    background-color: transparent;
+    background-image: linear-gradient(to right, rgb(255, 255, 255), rgba(255, 0, 0, 0.199));
+    color: rgb(147, 173, 180);
+    width: 80%;
+    padding: 1%;
+    margin-left: 2%;
+}
+#title_discription{
+    background-color: transparent;
+    background-image: linear-gradient(to right, rgb(0, 0, 0), rgba(255, 0, 0, 0.199));
+    color: rgb(147, 173, 180);
+    width: 80%;
+    padding: 1%;
+    margin-top: 1%;
+}
+/* -------------------------------Create Form------------------------------- */
+.form-label{
+    /* border-bottom: solid; */
+    margin-top: 20px;
+    margin-left: 2%;
+}
+.form-control1{
+    background-color: transparent;
+    background-image: linear-gradient(to right, rgb(255, 255, 255), rgba(255, 0, 0, 0.199));
+    position: relative;
+    margin-top: 10px;
+    right: 8%;
+    /* margin-left: 4%; */
+    border-radius: 8px;
+    width: 70%;
+    padding: 1%;
+    float: right;
+}
+.form-control2{
+    color:  rgb(185, 206, 250);
+}
+#url_link{
+    background-color: transparent;
+    background-image: linear-gradient(to right, rgb(255, 255, 255), rgba(47, 0, 255, 0.199));
+    width: 90%;
+    color: black;
+    margin-left: 2%;
+}
+#creat_description{
+    background-color: transparent;
+    background-image: linear-gradient(to right, rgb(255, 255, 255), rgba(47, 0, 255, 0.199));
+    color: black;
+    width: 90%;
+    margin-left: 2%;
+}
+/* create form button */
+.d-grid {   
+    margin-top: 2%;
+    margin-bottom: 1%;
+}
+.form-group{
+    color: rgb(200, 245, 204);
+    word-spacing: 5px;
+}
+#create_form_heading{
+    margin-bottom: 2%;
+}
+/* --------------------------------Delete Form-------------------------------------- */
+#change_name{
+    background-color: transparent;
+    border: none;
+    color: white;
+    padding-left: 2%;
+    width: 50%;
+}
+#delete_info{
+    border-top: solid 2px;
+    padding: 2%;
+    margin-top: 2%;
+    color: wheat;
+}
+.delete_form_subjects{
+    font-size: 12px;
+    width: 40%;
+    position: relative;
+    float: left;
+    /* padding-left: 3%; */
+}
+.delete_form_titles{
+    font-size: 12px;
+    width: 50%;
+    position: relative;
+    /* padding-left: 3%; */
+    /* right: 3%; */
+    float: right;
+}
+
+
+
+
+
+
+
+

@@ -1,0 +1,51 @@
+{% extends "layout.html"%}
+
+{% block title%}
+  Home
+{% endblock %}
+
+{% block main %}
+<form action="/" method="POST">
+  <div id="hello_header" style="font-family: 'fantasy', papyrus;"><h2>Hello  {{username}}</h2></div>
+  <div id="box_center", style="right: 20%;">
+    <div style="text-align: center;">
+      <p1>Welcome to <strong style="color: rgb(15, 179, 230);">Link.Book,</strong> your one-stop destination for effortlessly organizing and accessing the vast digital realm. In an age where the internet is an endless treasure trove of knowledge and entertainment, finding and managing the content that matters to you has never been more critical. Our platform empowers you to collect and categorize URL links to videos and websites with precision, allowing you to structure your digital world according to your own preferences. Whether you're a student, a lifelong learner, or simply someone with a passion for curating online content, 
+        <strong style="color: rgb(15, 179, 230);">Link.Book</strong> is your go-to tool for navigating the web's limitless educational opportunities. Discover the freedom to learn, grow, and explore with ease, as you unlock the potential of your digital universe, one link at a time. <br> <strong style="color: rgb(131, 247, 85);">Click below to view your Content</strong></p1>
+    </div>
+    <div>
+      <div id="arrow"><span>&#8681;</span></div>
+      <button id="button_img" name="table_info" type="submit" value="true"></button>
+    </div>
+  </div>
+ </form>
+ 
+
+
+{% if table_info %}
+<div id="table_heading">
+  <p1>Here you will find your : <em style="text-decoration-line: underline;">Table Of Content</em></p1>
+</div>
+<div id="index_table">
+  <table>
+    <tr>
+      <th>BOOK</th>
+      <th>CHAPTER</th>
+      <th>TITLES</th>
+      <th>DISCRIPTION</th>
+      <th>URL</th>
+    </tr>
+    {% for row in table_info %}
+    <tr>
+      <td>{{ row.category }}</td>
+      <td>{{ row.subject }}</td>
+      <td>{{ row.title }}</td>
+      <td>{{ row.description }}</td>
+      <td><a href="{{row.url_link}}" target="_blank">OPEN</a></td>
+    </tr>
+    {% endfor %}
+  </table>
+</div>
+{% endif %}
+
+
+{% endblock %}

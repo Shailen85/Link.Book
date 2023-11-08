@@ -1,0 +1,156 @@
+{% extends "layout.html"%}
+
+{% block title%}
+  Books
+{% endblock %}
+
+{% block main %}
+<!-- display menu box with slelecting buttons -->
+<div id="box_left">
+  <div id="left_menubox">
+  <h4>All Books</h4>
+  <form method="post" action="/category">
+  {% for category in categories %}
+    <li><button class="btn btn-success" name="generate-subject" value="{{ category }}" type="submit">{{ category }}</button></li>
+  {% endfor %}
+  </div>
+  <div id="edit_menubox">
+    <li><button class="btn btn-success" id="generate-edit-form" name="generate-edit-form" value="true" type="submit">Edit / Delete</button></li>
+    <li><button class="btn btn-success" id="generate-form" name="generate-form" value="true" type="submit">Create New Book</button></li>
+  </div>
+  </form>
+</div>
+
+{% if body_img %}
+<div id="box_right" style="height: 400px;">
+  <form action="/category" method="post">
+    <div><button id="button_img" style="position: absolute;" name="table_info" type="submit" value="true" ></button></div>
+  </form>
+</div>
+{% endif %}
+
+<!-- list subjects when clicking on a category -->
+{% if subjects %}
+<div id="box_right">
+  <form action="/category" method="post">
+  <h4>BOOK: {{selected_categories}}</h4>
+  <div>
+    <ul style="border-radius: 8px; padding: 1%;">
+      {% for index in range(subjects|length) %}
+        <li class="form_group">
+          <label for="subject">Chapter: </label>
+          <label class="form-control2" id="subject_name">{{ subjects[index] }}</label> <br>
+          <label for="title" style="margin-left: 1%;">Title: </label>
+          <label class="form-control2" id="title_name">{{ title[index]}}</label>
+          <button name="search" value="{{ title[index] }}" type="submit">Play</button>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+  <div>
+    <button  class="btn btn-info" name="generate-delete-form" value="{{selected_categories}}" type="submit">Edit or Delete</button>
+  </div>
+  </form>
+</div>
+{% endif %}
+
+{% if form_html %}
+<div id="box_right">
+  <form action="/category" method="post">
+    <h4>CREATE NEW LINK:</h4>
+    <p>When ever you want to save a new link, this page is used. Every link is saved with its own book name, chapter and title. Make sure book name and chapter name spelt correctly(case sensitive) for title to go into the correct category.</p>
+    <div class="mb-3">
+      <label for="exampleFormControlInput1" class="form-label">URL Link:</label>
+      <input type="text" class="form-control" id="url_link" name="link" placeholder="Paste link here" autocomplete="off">
+      <div style="padding-top: 2%;">
+        <div id="create_form_heading">
+            <label for="exampleFormControlInput2" class="form-label">BOOK ></label>
+            <input list="browser" type="text" class="form-control1" id="exampleFormControlInput2" name="category" placeholder="eg. learning, action, comedy " autocomplete="off"><br>
+            <datalist id="browser">
+              {% for category in categories %}
+                <option name="option_select" value="{{category}}">{{category}}</option>          
+              {% endfor %}
+            </datalist>
+        </div>
+        <div id="create_form_heading">
+          <label for="exampleFormControlInput3" class="form-label">CHAPTER ></label>
+          <input list="browser1" type="text" class="form-control1" id="exampleFormControlInput3" name="subject" placeholder="eg. cooking, coding, fixing cars " autocomplete="off"><br>
+          <datalist id="browser1">
+            {% for list in subject_option %}
+              <option name="option_select" value="{{list}}">{{list}}</option>          
+            {% endfor %}
+          </datalist>
+        </div>
+        <div id="create_form_heading">
+          <label for="exampleFormControlInput4" class="form-label">TITLE ></label>
+          <input type="text" class="form-control1" id="exampleFormControlInput4" name="title" placeholder="enter own title" autocomplete="off"><br>
+        </div>
+      </div>
+      <div>
+      <label for="exampleFormControlTextarea1" style="color: white; padding-left: 2%;">DESCRIPTION:</label>
+      <textarea class="form-control" id="creat_description" rows="2" name="description" placeholder="Enter short discription about video"></textarea>
+      </div>
+      <div class="d-grid gap-2 d-md-flex justify-content-md-center">
+        <button class="btn btn-info"  name="submit-form" type="true">Create</button>
+      </div>
+    </div>
+  </form>
+</div>
+{% endif %}
+
+{% if forms_edit %}
+<div id="box_right">
+  <form action="/category" method="POST">
+    <h4>BOOK</h4>
+    <label for="option_select">Select Book : </label><br>
+    <input list="browser" name="option_select" type="text" autocomplete="off" style="isolation: isolate;">
+    <datalist id="browser">
+      {% for category in categories %}
+        <option name="option_select" value="{{category}}">{{category}}</option>          
+      {% endfor %}
+    </datalist>
+    <button class="btn btn-info" name="option_select" value="{{category}}">submit</button>
+  </form>
+</div>
+{% endif %}
+
+{% if form_delete %}
+<div id="box_right">
+  <form action="/category" method="POST" style="isolation: isolate;">
+    <h4>BOOK : {{edit_title}}</h4>
+    <label for="edit_category">Change Name From : </label>
+    <input type ="text" id="change_name" name="change_name" value="{{edit_title}}"><br>
+    <button class="btn btn-info" name="change" value="edit_category_name">Change</button>
+    <label for="edit_category">To</label>
+    <input type="text" id="edit_category" name="edit_category_name"><br>
+    <p>Warning: Changing name will move all chapters and titles below to new Book name</p>
+    
+    
+    <p>OR</p>
+
+    <button class="btn btn-info" name="delete_name" value="{{edit_title}}">Delete</button>
+    <label for="delete"> > {{edit_title}}</label>
+    <p>Warning: Deleting Book will delete all chapters and titles below</p>
+    
+    <div id="delete_info">
+      <div class="delete_form_subjects">
+        <label for="subject_name">Chapters
+        {% for subject in subject_list %}
+          <li>{{subject}}</li>
+        {% endfor %}
+        </label>
+      </div>
+      <div class="delete_form_titles">
+        <label for="title_name">Titles
+        {% for row in title %}
+          <li>{{row}}</li>
+        {% endfor %}
+        </label>
+      </div>
+    </div>
+  </form>
+</div>
+{% endif %}
+
+
+{% endblock %}

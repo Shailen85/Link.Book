@@ -1,0 +1,126 @@
+{% extends "layout.html"%}
+
+{% block title%}
+  Titles
+{% endblock %}
+
+{% block main %}
+<div id="box_left">
+  <div id="left_menubox">
+    <h4>All Titles</h4>
+    <form method="post" action="/titles">
+    {% for title in titles %}
+      <li><button class="btn btn-success" type="submit" id="html" name="get_link" value="{{title}}">{{title}}</button></li>
+    {% endfor %}
+    <div id="edit_menubox">
+      <li><button class="btn btn-success" name="generate-edit-form"  value="true" type="submit">Edit / Delete</button></li>
+      <li><button class="btn btn-success" name="generate-form"  value="true" type="submit">Creat New Title</button></li>
+    </div>
+    </form>
+  </div>
+</div>
+
+{% if body_img %}
+<div id="box_right" style="height: 500px; --bg-image: url('/static/pictures/titled.png')">
+  <form action="/category" method="post">
+    <div><button id="button_img" style="position: absolute;" name="table_info" type="submit" value="true" ></button></div>
+  </form>
+</div>
+{% endif %}
+
+{% if link %}
+<div id="box_right" style="--bg-image: url('/static/pictures/titled.png')">
+  <form action="/titles" method="POST">
+    <div class="mb-3">
+      <h4>Title: {{title_name}}</h4>
+      <div class="form-group">
+        <label for="id">ID:</label>
+        <label class="form-control2" id="title_id">{{title_id}}</label>
+      </div>
+      <div class="form-group">
+        <label for="category">Book:</label>
+        <label class="form-control2" id="category_name">{{category_name}}</label>
+      </div>
+      <div class="form-group">
+        <label for="subject">Chapter:</label>
+        <label class="form-control2" id="subject_name">{{subject}}</label>
+      </div>
+      <div class="form-group">
+        <label for="title">Title:</label>
+        <label class="form-control2" id="title_name">{{title_name}}</label>
+      </div>
+      <div class="form-group">
+        <label for="url">Url:</label>
+        <label class="form-control2" id="link" style=" color:  rgb(185, 206, 250);">{{link}}</label>
+      </div>
+      <div class="form-group">
+        <label for="dis">Description:</label>
+        <textarea class="form-control" id="title_discription" rows="3" name="dis" disabled>{{d_name}}</textarea>
+      </div>
+      <div style="padding-left: 35%;">
+        <button style="background-color: green;"><a href="{{link}}" target="_blank" style="color: rgb(1, 0, 7);">Open</a></button>
+      </div>
+      <div>
+        <button class="btn btn-info" name="generate-delete-form" value="{{title_name}}" type="submit">Edit / Delete</button>
+      </div>
+    </div>
+  </form>
+</div>
+{% endif %}
+
+{% if forms_edit %}
+<div id="box_right" style="--bg-image: url('/static/pictures/titled.png')">
+  <form action="/titles" method="POST">
+    <h4>Titles</h4>
+    <label for="option_select">Select Title : </label><br>
+    <input list="browser" name="option_select" type="text" autocomplete="off">
+    <datalist id="browser">
+    {% for list in titles %}
+      <option name="option_select" value="{{list}}">{{list}}</option>          
+    {% endfor %}
+    </datalist>
+    <button class="btn btn-info" name="option_select" value="{{list}}">submit</button>
+  </form>
+</div>
+{% endif %}
+
+{% if form_delete %}
+<div id="box_right" style="--bg-image: url('/static/pictures/titled.png')">
+  <form action="/titles" method="POST">
+    <p>id : {{title_id}}</p>
+    <p>BOOK : {{category_name}} </p>
+    <p>CHAPTER : {{subject}} </p>
+    <h4>TITLE: {{title}}</h4>
+    <label for="edit_subject">Change Name From : </label>
+    <input type ="text" id="change_name" name="change_name" value="{{title}}"><br>
+    <button class="btn btn-info" name="change" value="edit_subject_name">Change</button>
+    <label for="edit_subject">To</label>
+    <input type="text" id="edit_subject" name="edit_title_name"><br>
+    <p>This will only change name of title</p>
+    
+    <p>OR</p>
+
+    <button class="btn btn-info" name="delete_name" value="{{title}}">Delete</button>
+    <label for="delete"> > {{title}}</label>
+    <p>This will delete only the title</p>
+
+    <p>OR</p>
+
+    <button class="btn btn-info" name="edit_description" value="new_description" >Update</button>
+    <label for="new_description"> > Description:</label>
+    <textarea class="form-control" id="title_discription" name="new_description" placeholder="{{d_name}}"></textarea>
+    
+    <div id="delete_info">
+      <div class="delete_form_subjects">
+        <label for="subject_name">Books <li>{{category_name}}</li></label>
+      </div>
+      <div class="delete_form_titles">
+        <label for="title_name">Chapters <li>{{subject}}</li> </label>
+      </div>
+    </div>
+  </form>
+</div>
+{% endif %}
+
+
+{% endblock %}
