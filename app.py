@@ -22,7 +22,7 @@ def after_request(response):
 
 def get_db():
     if 'db' not in g:
-        g.db = sqlite3.connect(app.config['DATABASE'])
+        g.db = sqlite3.connect(app.config[' DATABASE_URL'])
         g.db.row_factory = sqlite3.Row  # Allows using column names for result retrieval
     return g.db
 
