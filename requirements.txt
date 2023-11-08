@@ -30,7 +30,7 @@ pyinstaller-hooks-contrib==2022.13
 pyjokes==0.6.0
 PyMsgBox==1.0.9
 pyperclip==1.8.2
-pypiwin32==223
+#pypiwin32==223
 PyRect==0.2.0
 PyScreeze==0.1.28
 pyttsx3==2.90
