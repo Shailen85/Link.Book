@@ -9,7 +9,8 @@ from helpers import login_required, search_bar, category_list, subjects_list, se
 # Configure application
 app = Flask(__name__)
 app.config.from_pyfile('config.py')
-app.config['DATABASE'] = 'book.db'
+#app.config['DATABASE'] = 'book.db'
+app.config['DATABASE'] = 'mysql://dq18g0nck4l0xkui:pr8p7zw67k2jcr5f@jhdjjtqo9w5bzq2t.cbetxkdyhwsb.us-east-1.rds.amazonaws.com:3306/l724tkvf41ex5c8f'
 
 @app.after_request
 def after_request(response):
