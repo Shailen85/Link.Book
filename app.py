@@ -9,8 +9,8 @@ from helpers import login_required, search_bar, category_list, subjects_list, se
 # Configure application
 app = Flask(__name__)
 app.config.from_pyfile('config.py')
-#app.config['DATABASE'] = 'book.db'
-app.config[' DATABASE_URL'] = 'mysql://dq18g0nck4l0xkui:pr8p7zw67k2jcr5f@jhdjjtqo9w5bzq2t.cbetxkdyhwsb.us-east-1.rds.amazonaws.com:3306/l724tkvf41ex5c8f'
+app.config['DATABASE'] = 'book.db'
+
 
 @app.after_request
 def after_request(response):
@@ -22,7 +22,7 @@ def after_request(response):
 
 def get_db():
     if 'db' not in g:
-        g.db = sqlite3.connect(app.config[' DATABASE_URL'])
+        g.db = sqlite3.connect(app.config[' DATABASE'])
         g.db.row_factory = sqlite3.Row  # Allows using column names for result retrieval
     return g.db
 
@@ -476,6 +476,6 @@ def apology():
     """Show page details""" 
     return render_template ("apology.html")
 
-#if __name__ == "__main__":
- #   app.run(debug=False)
+if __name__ == "__main__":
+   app.run(debug=False)
 
