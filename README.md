@@ -13,7 +13,7 @@
 
 ## Introduction
 
-LINK.BOOK is a Flask-based web application designed using (Flask, SQLite, HTMl and CSS) to help users organize and store educational links, such as videos and web pages, in a structured manner. It allows users to categorize links into books, chapters, titles, and descriptions, making it a valuable tool for anyone looking to streamline their learning process.
+LINK.BOOK is a Flask-based web application designed using (Flask, Python, SQLite, HTMl and CSS) to help users organize and store educational links, such as videos and web pages, in a structured manner. It allows users to categorize links into books, chapters, titles, and descriptions, making it a valuable tool for anyone looking to streamline their learning process.
 
 ## Features
 
@@ -23,13 +23,101 @@ Link Organization: Categorize links into books, chapters, titles, and descriptio
 
 Search Functionality: Users can search for links by Book(category), Chapter(subject), and Title(title).
 
-Responsive UI: A user-friendly web interface that works well on both desktop and mobile devices.
+Responsive UI: A user-friendly web interface can work well on both desktop and mobile devices.
 
-## Getting Startedr
+## Getting Started
+Link.Book is not a live Web app. Below is the configuration to use it on your local pc. Follow the steps below
 
-Go to URL https: 'todo'
+**Step 1: Prerequisites**
 
-## Usage
+- Python (version 3.6 or higher)
+- pip (Python package manager)
+- SQLite (for the database)
+
+**Step 2: Installation**
+
+1. Clone the repository to your local machine directory: 
+```
+git clone https://github.com/Shailen85/Link.Book.git
+```
+
+2. Navigate to the project directory where it saved:
+```
+cd Link.Book
+```
+
+3. Create a virtual environment (recommended):
+```
+python -m venv venv
+```
+
+4. Activate the virtual environment:
+- On Windows:
+  ```
+  venv\Scripts\activate
+  ```
+- On macOS and Linux:
+  ```
+  source venv/bin/activate
+  ```
+
+5. Install the required packages:
+```
+pip install -r requirements.txt
+```
+**Step 3: Configuration**
+
+- Copy the `config.py.example` file and rename it to `config.py`.
+- Edit `config.py` to set your secret key.
+
+**Step 4: Database Initialization**
+
+1. Create the database and tables:
+- Create database(sqlite3) book.db in main directory
+- Create tables:
+1. Open sqlite3
+    ```
+    sqlite3 book.db
+    ```
+2. Create 1st table
+    ```
+    CREATE TABLE users (
+        id INTEGER PRIMARY KEY NOT NULL,
+        username TEXT NOT NULL,
+        hash TEXT NOT NULL,
+        email TEXT NOT NULL
+    );
+    ``` 
+3. Create 2nd table
+    ```
+    CREATE TABLE content (
+        id INTEGER PRIMARY KEY NOT NULL,
+        date TIMESTAMP NOT NULL,        
+        user_id INTEGER NOT NULL,       
+        username TEXT NOT NULL,
+        category TEXT NOT NULL,
+        subject TEXT NOT NULL,
+        title TEXT NOT NULL,
+        description TEXT,
+        url_link TEXT NOT NULL
+    );
+    ```
+- To view tables:
+```
+.schema
+```
+**Step 5: Running the Application**
+
+Start the Flask development server:
+```
+python app.py
+```
+
+The application will be accessible at [http://localhost:5000/](http://localhost:5000/) in your web browser.
+
+
+
+## Webpage Usage
 
 1. Registration: Users must create an account to save and manage links.
 
