@@ -1,12 +1,14 @@
-#body{
+body{
     height:1330px;
+    /* max-width: 100px; */
     background-image: linear-gradient(to right, rgb(0, 0, 0), rgb(3, 49, 122), rgba(2, 59, 150, 0.788));
     /* background-image: url("/static/pictures/titled.png"); */
     background-size: contain;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    /* max-height: 100%;  */
+    margin: 0;
+    padding: 0;
 }
 
 /* --------------------------------Index Page------------------------------------------ */
@@ -137,6 +139,7 @@ p1{
 }
 /* --------------------------------layout navigation bar------------------------------------- */
 #navbar {
+    width: 100%;
     border-bottom: solid rgb(226, 231, 183);
     border-width: 1px;
     position: relative;
@@ -157,6 +160,7 @@ p1{
     margin-top: -1%;
 }
 #navbar ul { 
+    /* border: solid white; */
     position: relative; /* entire ul */
     list-style: none; /* Remove bullet points from the list */
     margin-bottom: 0%;
@@ -164,7 +168,7 @@ p1{
     display:flex; /* Display items horizontally */
 }
 #navbar ul li {
-    /* border: solid; */
+    /* border: solid white; */
     width: 100%;
     position: relative;
     display:flex;
@@ -174,29 +178,29 @@ p1{
     position: relative;
     text-decoration: none; /* Remove underlines from links */
     color:rgb(255, 255, 255); /* Text color for links */
-    padding: 1%;
+    /* padding: 1%; */
 }
 #navbar a:hover{
     color: greenyellow;
 }
-#navbar_title_right{
-    position: relative;
-    margin-left: 75%;
-    margin-right: 1%;
-}
 #navbar_title_left{
     /* border: solid; */
     position: relative;
-    margin-left: 5%;
+    margin-right: 2%;
+}
+#navbar_title_right{
+    /* border: solid; */
+    position: relative;
+    margin-left: 45%;
     margin-right: 1%;
 }
 #navbar form {
-    /* border: solid; */
-    margin-left: 50%;
-    margin-top: -40px;
+    /* border: solid white; */
+    padding-left: 30%;
+    padding-top: 2%;
     display: flex;
     align-items: center;
-    position:absolute;
+    /* position:absolute; */
 }
 #navbar form input{
     font-family: 'Times New Roman', Times, serif;  
@@ -280,10 +284,10 @@ button{
     --bg-image-opacity: 0.3;
     margin-top: 2%;
     border-radius: 8px;
-    width: 50%;
+    width: 60%;
     padding: 2%;
     position: absolute;
-    right: 15%;
+    right: 5%;
     height: auto;
     color: rgb(255, 255, 255);
 }
